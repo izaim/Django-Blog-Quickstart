@@ -1,2 +1,2 @@
 # Simple-Blog-Django
-#### A quickstart package for those who want to build a Blog using Python/Django.
+#### A quickstart for those who want to build a Blog using Python/Django.

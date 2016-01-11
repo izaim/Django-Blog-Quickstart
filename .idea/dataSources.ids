@@ -102,6 +102,14 @@
       <primary-key columns="session_key"/>
       <index name="django_session_de54fa62" unique="true" columns="expire_date"/>
     </table>
+    <table name="posts_post" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" precision="0" scale="-1" nullable="false" jdbcType="4"/>
+      <column name="title" sqlType="VARCHAR(150)" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="content" sqlType="TEXT" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="created" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <column name="updated" sqlType="DATETIME" precision="0" scale="-1" nullable="false" jdbcType="12"/>
+      <primary-key columns="id"/>
+    </table>
     <table name="sqlite_sequence" schema="" catalog="" type="TABLE">
       <column name="name" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>
       <column name="seq" sqlType="" precision="0" scale="-1" nullable="true" jdbcType="12"/>

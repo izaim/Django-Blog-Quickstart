@@ -3,7 +3,6 @@
   <component name="dataSourceStorageLocal">
     <data-source name="Django default" uuid="307055fa-d482-427d-b832-5ae4c27a2716">
       <auth-required>false</auth-required>
-      <first-sync>true</first-sync>
     </data-source>
     <data-source name="Django default2" uuid="0965bf2d-0782-4d4a-8ab0-87c9e405678b">
       <auth-required>false</auth-required>

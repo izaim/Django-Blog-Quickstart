@@ -1,16 +1,18 @@
-# Simple-Blog-Django
-#### A quickstart for those who want to build a Blog using Python/Django.
+# Django-Blog-Quickstart
+#### A basic quickstart for those who want to start a Blog site using Python/Django.
 
-- Users/User Groups
-- CRUD Posts
+- Users/User Groups (django admin)
+- CRUD Articles
 - Search Posts
 - Messages
-- Pagination
+- Article Views
+- Article/Category Pagination
 - Social Share Links
-- Bootstrap - Views
 
-Frameworks' versions: 
-Django 1.9.11 (virtualenv)
-Bootstrap 3.3.6
+Frameworks used: 
+Django 1.9.1 (virtualenv)
+Bootstrap 3 (latest)
 
-#### Feel free to just take it and go.
+DB: SQLite3 (included)
+
+#### Feel free take it and go.

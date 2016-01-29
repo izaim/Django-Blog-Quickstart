@@ -5,5 +5,12 @@
 </head>
     <body>
         <h1>{{ title }} Index is Working!</h1>
+        {% for article in object_list %}
+            {{ article.title }}<br/>
+            {{ article.content }}<br/>
+            {{ article.timestamp }}<br/>
+            {{ article.updated }}<br/>
+            {{ article.id }}<br/>
+        {% endfor %}
     </body>
 </html>

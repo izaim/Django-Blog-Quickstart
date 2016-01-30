@@ -1,5 +1,5 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from .models import Post
 
@@ -8,10 +8,12 @@ def post_create(request): #create post
     return HttpResponse("<h1>Create</h1>")
 
 def post_detail(request): #read post
+    instance = get_object_or_404(Post,id=1)
     context = {
-        "title": "Detail"
+        "title": instance.title,
+        "instance": instance,
     }
-    return render(request,"index.html", context)
+    return render(request,"single_post.html", context)
     #return HttpResponse("<h1>Detail</h1>")
 
 def post_list(request): #list posts

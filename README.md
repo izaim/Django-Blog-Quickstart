@@ -10,9 +10,9 @@
 - Social Share Links
 
 Frameworks used: 
-Django 1.9.1 (virtualenv)
-Bootstrap 3 (latest)
+- Django 1.9.1 (virtualenv)
+- Bootstrap 3 (latest)
 
-DB: SQLite3 (included)
+DB: SQLite3 (included <b>Blog/db.sqlite3</b>)
 
-#### Feel free take it and go.
+#### Feel free to take it and go.

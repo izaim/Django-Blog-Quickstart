@@ -6,7 +6,7 @@
     <body>
         <h1>{{ title }} Index is Working!</h1>
         {% for article in object_list %}
-            {{ article.title }}<br/>
+            <a href="{{article.get_absolute_url}}">{{ article.title }}</a><br/>
             {{ article.content }}<br/>
             {{ article.timestamp }}<br/>
             {{ article.updated }}<br/>

@@ -34,9 +34,9 @@ def post_list(request): #list posts
     queryset = Post.objects.all()
     context ={
         "object_list": queryset,
-        "title": "My User List"
+        "title": "My Posts"
     }
-    return render(request,"index.html", context)
+    return render(request,"posts.html", context)
 
 
 def post_update(request, id=None): #update post

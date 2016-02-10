@@ -1,9 +1,9 @@
-<html>
-    <body>
+{% extends "main.html" %}
+
+{% block content %}
     <h1>Post Form</h1>
         <form action="" method="post"> {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Create Post"/>
         </form>
-    </body>
-</html>
+{% endblock content %}

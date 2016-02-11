@@ -2,8 +2,9 @@
 {% block title %} {{ instance.title }} &ndash; {{ block.super }} {% endblock title %}
 {% block content %}
     <div class="col-sm-6 col-sm-offset-3">
-        <h1>{{ title }} <small>Published: {{ instance.created }}</small></h1>
-        <small>Last Update: {{ instance.updated }}</small><br/>
-        {{ instance.content|linebreaks }}<br/>
+        <h1>{{ title }}</h1>
+        <small>Published: {{ instance.created }}</small>
+        <p>{{ instance.content|linebreaks }}</p>
+        <small>Last Update: {{ instance.updated }}</small>
     </div>
 {% endblock content %}

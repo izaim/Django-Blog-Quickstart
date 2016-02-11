@@ -1,12 +1,9 @@
 {% extends "main.html" %}
 {% block title %} {{ instance.title }} &ndash; {{ block.super }} {% endblock title %}
 {% block content %}
-
-    <h1>{{ title }}</h1>
-    {{ instance.title }}<br/>
-    {{ instance.content }}<br/>
-    {{ instance.timestamp }}<br/>
-    {{ instance.updated }}<br/>
-    {{ instance.id }}<br/>
-
+    <div class="col-sm-6 col-sm-offset-3">
+        <h1>{{ title }} <small>Published: {{ instance.created }}</small></h1>
+        <small>Last Update: {{ instance.updated }}</small><br/>
+        {{ instance.content|linebreaks }}<br/>
+    </div>
 {% endblock content %}

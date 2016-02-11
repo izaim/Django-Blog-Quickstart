@@ -10,15 +10,15 @@
 - Integrated Bootstrap
 - Social Share Links
 
-Frameworks used: 
+##### Frameworks used: 
 - Django 1.9.1 (virtualenv)
 - Bootstrap 3 (latest)
 
-Database: 
-SQLite3 (included <b>Blog/db.sqlite3</b>)
+##### Database: 
+- SQLite3 (included <b>Blog/db.sqlite3</b>)
 
-Extra:
-PostgreSQL driver: http://initd.org/psycopg/
-MySQL driver: https://dev.mysql.com/downloads/connector/python/
+##### Extra:
+- PostgreSQL driver: http://initd.org/psycopg/
+- MySQL driver: https://dev.mysql.com/downloads/connector/python/
 
 #### Feel free to take it and go.

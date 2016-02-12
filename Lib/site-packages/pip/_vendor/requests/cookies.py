@@ -6,11 +6,10 @@ Compatibility code to be able to use `cookielib.CookieJar` with requests.
 requests.utils imports from here, so be careful with imports.
 """
 
-import calendar
-import collections
 import copy
 import time
-
+import calendar
+import collections
 from .compat import cookielib, urlparse, urlunparse, Morsel
 
 try:

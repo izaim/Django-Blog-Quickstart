@@ -10,7 +10,7 @@
 - Integrated Bootstrap
 - Social Share Links
 
-##### Frameworks used: 
+##### Frameworks: 
 - Django 1.9.1 (virtualenv)
 - Bootstrap 3 (latest)
 

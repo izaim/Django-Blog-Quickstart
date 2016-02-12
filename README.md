@@ -11,7 +11,7 @@
 - Social Share Links
 
 ##### Frameworks: 
-- Django 1.9.1 (virtualenv)
+- Django 1.9.2 (virtualenv)
 - Bootstrap 3 (latest)
 
 ##### Database: 

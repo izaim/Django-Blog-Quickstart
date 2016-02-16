@@ -10,7 +10,7 @@ from django.shortcuts import render
 
 # Create your views here.
 def post_create(request): #create post
-    form = PostForm(request.POST or None)
+    form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
         print form.cleaned_data.get("title")
@@ -58,7 +58,7 @@ def post_list(request): #list posts
 
 def post_update(request, id=None): #update post
     instance = get_object_or_404(Post,id=id)
-    form = PostForm(request.POST or None, instance=instance)
+    form = PostForm(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
         instance.save()

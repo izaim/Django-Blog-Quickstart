@@ -4,6 +4,9 @@
     <div class="col-sm-6 col-sm-offset-3">
         <h1>{{ title }}</h1>
         <small>Published: {{ instance.created }}</small>
+        {% if instance.image %}
+        <img src="{{ instance.image.url }}" class="img-responsive" alt="">
+        {% endif %}
         <p>{{ instance.content|linebreaks }}</p>
         <small>Last Update: {{ instance.updated }}</small>
     </div>

@@ -31,7 +31,7 @@ def post_detail(request, id): #read post
 
 
 def post_list(request): #list posts
-    queryset = Post.objects.all()
+    queryset = Post.objects.all().order_by("-created")
     context ={
         "object_list": queryset,
         "title": "My Posts"

@@ -20,7 +20,7 @@ from django.contrib import admin
 
 
 urlpatterns = [
-    url('^', include("posts.urls")),
+    url('^', include("posts.urls")), #redirect to /posts
     url(r'^posts/', include("posts.urls", namespace="posts")),
     url(r'^admin/', admin.site.urls),
 ]

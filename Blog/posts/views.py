@@ -1,15 +1,18 @@
+from urllib import quote_plus
 from django.contrib import messages
-from django.http import HttpResponseRedirect
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404, redirect
 from .forms import PostForm
 from .models import Post
 
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.shortcuts import render
 
 
 # Create your views here.
 def post_create(request): #create post
+    if not request.user.is_staff or not request.user.is_superuser:
+        raise Http404
     form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
@@ -57,6 +60,8 @@ def post_list(request): #list posts
 
 
 def post_update(request, slug=None): #update post
+    if not request.user.is_staff or not request.user.is_superuser:
+        raise Http404
     instance = get_object_or_404(Post,slug=slug)
     form = PostForm(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
@@ -74,6 +79,8 @@ def post_update(request, slug=None): #update post
 
 
 def post_delete(request, slug=None): #delete post
+    if not request.user.is_staff or not request.user.is_superuser:
+        raise Http404
     instance = get_object_or_404(Post, slug=slug)
     instance.delete()
     messages.success(request,"Article Deleted Successfully!", extra_tags="glyphicon glyphicon-ok")

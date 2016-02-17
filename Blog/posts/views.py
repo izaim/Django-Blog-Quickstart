@@ -24,13 +24,13 @@ def post_create(request): #create post
     return render(request,"form.html", context)
 
 
-def post_detail(request, id): #read post
-    instance = get_object_or_404(Post,id=id)
-    context = {
-        "title": instance.title,
-        "instance": instance,
-    }
-    return render(request,"single_post.html", context)
+def post_detail(request, slug=None):
+        instance = get_object_or_404(Post, slug=slug)
+        context = {
+            "title": instance.title,
+            "instance": instance,
+        }
+        return render(request, "single_post.html", context)
 
 
 def post_list(request): #list posts
@@ -56,8 +56,8 @@ def post_list(request): #list posts
     return render(request,"posts.html", context)
 
 
-def post_update(request, id=None): #update post
-    instance = get_object_or_404(Post,id=id)
+def post_update(request, slug=None): #update post
+    instance = get_object_or_404(Post,slug=slug)
     form = PostForm(request.POST or None, request.FILES or None, instance=instance)
     if form.is_valid():
         instance = form.save(commit=False)
@@ -73,8 +73,8 @@ def post_update(request, id=None): #update post
     return render(request,"form.html", context)
 
 
-def post_delete(request, id=None): #delete post
-    instance = get_object_or_404(Post, id=id)
+def post_delete(request, slug=None): #delete post
+    instance = get_object_or_404(Post, slug=slug)
     instance.delete()
     messages.success(request,"Article Deleted Successfully!", extra_tags="glyphicon glyphicon-ok")
     return redirect("posts:list")

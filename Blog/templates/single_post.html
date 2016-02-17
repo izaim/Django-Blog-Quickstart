@@ -3,11 +3,17 @@
 {% block content %}
     <div class="col-sm-6 col-sm-offset-3">
         <h1>{{ title }}</h1>
-        <small>Published: {{ instance.created }}</small>
+        <p>Published: {{ instance.created }}</p>
         {% if instance.image %}
         <img src="{{ instance.image.url }}" class="img-responsive" alt="">
         {% endif %}
+        <p></p>
+        {#please replace the code below from your own addthis.com account#}
+        <div class="addthis_native_toolbox">
+            <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-565d9b52ca1d302f"></script>
+        </div>
+        {#please replace the above code from your own addthis.com account#}
         <p>{{ instance.content|linebreaks }}</p>
-        <small>Last Update: {{ instance.updated }}</small>
+        <p>Last Update: {{ instance.updated }}</p>
     </div>
 {% endblock content %}

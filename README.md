@@ -24,7 +24,8 @@
 #### Feel free to take it and go.
 
 Frontend
-![alt tag](screenshot2.png)
+![alt tag](https://i.imgur.com/UBm9m4d.png)
 
 Backend
-![alt tag](screenshot1.png)
+![alt tag](https://i.imgur.com/UBm9m4d.png)
+

@@ -22,3 +22,9 @@
 - MySQL driver: https://dev.mysql.com/downloads/connector/python/
 
 #### Feel free to take it and go.
+
+Frontend
+![alt tag](screenshot2.png)
+
+Backend
+![alt tag](screenshot1.png)

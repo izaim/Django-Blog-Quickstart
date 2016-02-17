@@ -4,10 +4,19 @@ from django.core.urlresolvers import reverse
 from django.db import models
 # Create your models here.
 
+
+def upload_dir(article, filename):
+    return "%s/%s" % (article.id, filename)
+
+
 class Post(models.Model):
     title = models.CharField(max_length=150)
     content = models.TextField()
-    image = models.ImageField(null=True, blank=True, width_field="width_field", height_field="height_field")
+    image = models.ImageField(upload_to=upload_dir,
+                              null=True,
+                              blank=True,
+                              width_field="width_field",
+                              height_field="height_field")
     height_field = models.IntegerField(default=0)
     width_field = models.IntegerField(default=0)
 

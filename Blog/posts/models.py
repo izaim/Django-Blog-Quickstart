@@ -1,5 +1,6 @@
 from __future__ import unicode_literals
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.signals import pre_save
@@ -12,6 +13,7 @@ def upload_dir(instance, filename):
 
 
 class Post(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, default=1)
     title = models.CharField(max_length=150)
     slug = models.SlugField(unique=True)
     content = models.TextField()
@@ -53,7 +55,4 @@ def create_slug(instance, new_slug=None):
 def pre_save_post_receiver(sender, instance, *args, **kwargs):
     if not instance.slug:
         instance.slug = create_slug(instance)
-
-
-
 pre_save.connect(pre_save_post_receiver, sender=Post)

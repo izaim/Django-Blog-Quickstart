@@ -2,10 +2,10 @@
 {% block title %} {{ instance.title }} &ndash; {{ block.super }} {% endblock title %}
 {% block content %}
     <div class="col-sm-6 col-sm-offset-3">
-        <h1>{{ title }}</h1>
-        <p><i>Published: {{ instance.created }} by {{ instance.user.get_full_name }}</i></p>
+        <h1>{{ title }} <small>{% if instance.draft %} <span style="color: red">(Draft)</span> {% endif %}</small></h1>
+        <p><i>Published: {{ instance.publish }} by {{ instance.user.get_full_name }}</i></p>
         {% if instance.image %}
-        <img src="{{ instance.image.url }}" class="img-responsive" alt="">
+            <img src="{{ instance.image.url }}" class="img-responsive" alt="">
         {% endif %}
         <p></p>
         {#please replace the code below from your own addthis.com account#}

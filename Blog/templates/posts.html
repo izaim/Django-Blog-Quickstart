@@ -10,7 +10,8 @@
                 <img src="{{ article.image.url }}" class="img-responsive" alt="">
                 {% endif %}
                 <div class="caption">
-                  <h3><a href="{{article.get_absolute_url}}">{{ article.title }}</a><small> {{ article.created | timesince }} ago </small></h3>
+                  <h3><a href="{{article.get_absolute_url}}">{{ article.title }}</a><br/>
+                      <small> {{ article.created | timesince }} ago </small></h3>
                   <p>{{ article.content | truncatechars:100 }}</p>
                   <p><a href="{{article.get_absolute_url}}" class="btn btn-default" role="button">Read More</a></p>
                 </div>

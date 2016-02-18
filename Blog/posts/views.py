@@ -16,6 +16,7 @@ def post_create(request): #create post
     form = PostForm(request.POST or None, request.FILES or None)
     if form.is_valid():
         instance = form.save(commit=False)
+        instance.user = request.user
         print form.cleaned_data.get("title")
         instance.save()
         messages.success(request,"Article Posted Successfully!", extra_tags="glyphicon glyphicon-ok")

@@ -15,5 +15,7 @@
         {#please replace the above code from your own addthis.com account#}
         <p>{{ instance.content|linebreaks }}</p>
         <p><i>Last Update: {{ instance.updated }}</i></p>
+        {# Facebook Comments #}
+        <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5"></div>
     </div>
 {% endblock content %}

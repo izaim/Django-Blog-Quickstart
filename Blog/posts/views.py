@@ -3,6 +3,7 @@ from django.contrib import messages
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render, get_object_or_404, redirect
+from django.utils import timezone
 from .forms import PostForm
 from .models import Post
 
@@ -30,6 +31,9 @@ def post_create(request): #create post
 
 def post_detail(request, slug=None):
         instance = get_object_or_404(Post, slug=slug)
+        if instance.publish > timezone.now().date() or instance.draft:
+            if not request.user.is_staff or not request.user.is_superuser:
+                raise Http404
         context = {
             "title": instance.title,
             "instance": instance,
@@ -38,7 +42,7 @@ def post_detail(request, slug=None):
 
 
 def post_list(request): #list posts
-    queryset_list = Post.objects.all().order_by("-created")
+    queryset_list = Post.objects.active().order_by("-created")
     paginator = Paginator(queryset_list, 5) #Show 25 contacts per page
 
     #pagination

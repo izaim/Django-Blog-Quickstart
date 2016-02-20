@@ -5,7 +5,11 @@ from django.core.urlresolvers import reverse
 from django.db import models
 from django.db.models.signals import pre_save
 from django.utils.text import slugify
+from django.utils import timezone
 
+class PostManager(models.Manager):
+    def active(self, *args, **kwargs):
+        return super(PostManager, self).filter(draft=False).filter(publish__lte=timezone.now())
 
 # image upload directory names by post.id
 def upload_dir(instance, filename):
@@ -28,6 +32,8 @@ class Post(models.Model):
     publish = models.DateField(auto_now=False, auto_now_add=False)
     created = models.DateTimeField(auto_now=False, auto_now_add=True)
     updated = models.DateTimeField(auto_now=True, auto_now_add=False)
+
+    objects = PostManager()
 
     def __unicode__(self):
         return self.title

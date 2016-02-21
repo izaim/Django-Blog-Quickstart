@@ -2,6 +2,13 @@
 {% block content %}
 <div class="col-sm-6 col-sm-offset-3">
 <h1>{{ title }}</h1>
+
+    <div class="col-sm-6 col-sm-offset-6" style="float:right">
+        <form action="" method="GET">
+            <input type="text" name="search" placeholder="Search any post .." value="{{ request.GET.search }}">
+            <input type="submit" value="Search"/>
+        </form>
+    </div><br/><br/>
     {% for article in object_list %}
         <div class="row">
            <div class="col-sm-12">
@@ -23,7 +30,7 @@
 <div class="pagination">
     <span class="step-links">
         {% if object_list.has_previous %}
-            <a href="?page={{ object_list.previous_page_number }}">previous</a>
+            <a href="?page={{ object_list.previous_page_number }}{% if request.GET.search %}&search = {{ request.GET.search }}{% endif %}">previous</a>
         {% endif %}
 
         <span class="current">
@@ -31,7 +38,7 @@
         </span>
 
         {% if object_list.has_next %}
-            <a href="?page={{ object_list.next_page_number }}">next</a>
+            <a href="?page={{ object_list.next_page_number }}{% if request.GET.search %}&search = {{ request.GET.search }}{% endif %}">next</a>
         {% endif %}
     </span>
 </div>

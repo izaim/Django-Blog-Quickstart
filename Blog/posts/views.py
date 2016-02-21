@@ -6,6 +6,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .forms import PostForm
 from .models import Post
+from django.db.models import Q
 
 from django.shortcuts import render
 
@@ -42,11 +43,25 @@ def post_detail(request, slug=None):
 
 
 def post_list(request): #list posts
+    today = timezone.now().date()
     queryset_list = Post.objects.active().order_by("-created")
-    paginator = Paginator(queryset_list, 5) #Show 25 contacts per page
+    if request.user.is_staff or request.user.is_superuser:
+        queryset_list = Post.objects.all()
+
+    #search posts
+    search = request.GET.get("search")
+    if search:
+        queryset_list = queryset_list.filter(
+            Q(title__icontains=search) |
+            Q(content__icontains=search) |
+            Q(user__first_name__icontains=search) |
+            Q(user__last_name__icontains=search)
+        ).distinct()
 
     #pagination
-    page = request.GET.get('page')
+    paginator = Paginator(queryset_list, 5) #Show 25 contacts per page
+    page_request_var = "page"
+    page = request.GET.get(page_request_var)
     try:
         queryset = paginator.page(page)
     except PageNotAnInteger:
@@ -58,7 +73,9 @@ def post_list(request): #list posts
 
     context ={
         "object_list": queryset,
-        "title": "My Posts"
+        "title": "My Posts",
+        "page_request_var": page_request_var,
+        "today": today,
     }
 
     return render(request,"posts.html", context)

@@ -11,7 +11,9 @@ class PostManager(models.Manager):
     def active(self, *args, **kwargs):
         return super(PostManager, self).filter(draft=False).filter(publish__lte=timezone.now())
 
+
 # image upload directory names by post.id
+
 def upload_dir(instance, filename):
     return "%s/%s" % (instance.slug, filename)
 

@@ -27,5 +27,5 @@ Frontend
 ![alt tag](https://i.imgur.com/UBm9m4d.png)
 
 Backend
-![alt tag](https://i.imgur.com/lusRBdg.png)
+![alt tag](/Admin.jpg)
 

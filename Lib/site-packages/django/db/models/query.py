@@ -16,10 +16,10 @@ from django.db import (
 from django.db.models import sql
 from django.db.models.constants import LOOKUP_SEP
 from django.db.models.deletion import Collector
-from django.db.models.expressions import F, Date, DateTime
+from django.db.models.expressions import Date, DateTime, F
 from django.db.models.fields import AutoField
 from django.db.models.query_utils import (
-    Q, InvalidQuery, check_rel_lookup_compatibility, deferred_class_factory,
+    InvalidQuery, Q, check_rel_lookup_compatibility, deferred_class_factory,
 )
 from django.db.models.sql.constants import CURSOR
 from django.utils import six, timezone
@@ -1113,7 +1113,7 @@ class QuerySet(object):
             # if they are set up to select only a single field.
             if len(self._fields or self.model._meta.concrete_fields) > 1:
                 raise TypeError('Cannot use multi-field values as a filter value.')
-        else:
+        elif self.model != field.model:
             # If the query is used as a subquery for a ForeignKey with non-pk
             # target field, make sure to select the target field in the subquery.
             foreign_fields = getattr(field, 'foreign_related_fields', ())

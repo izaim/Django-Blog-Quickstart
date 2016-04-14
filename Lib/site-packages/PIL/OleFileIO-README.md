@@ -88,7 +88,7 @@ its 9 years and its new write features.
 As far as I know, olefile is the most complete and robust Python implementation to read MS OLE2 files, portable on 
 several operating systems. (please tell me if you know other similar Python modules)
 
-Since 2014 olefile/OleFileIO_PL has been integrated into [Pillow](http://python-imaging.github.io/), the friendly fork 
+Since 2014 olefile/OleFileIO_PL has been integrated into [Pillow](http://python-pillow.org), the friendly fork 
 of PIL. olefile will continue to be improved as a separate project, and new versions will be merged into Pillow 
 regularly.
 
@@ -161,8 +161,8 @@ Lundh under the following license:
 
 The Python Imaging Library (PIL) is
 
-- Copyright (c) 1997-2005 by Secret Labs AB
-- Copyright (c) 1995-2005 by Fredrik Lundh
+    Copyright © 1997-2011 by Secret Labs AB
+    Copyright © 1995-2011 by Fredrik Lundh
 
 By obtaining, using, and/or copying this software and/or its associated documentation, you agree that you have read, 
 understood, and will comply with the following terms and conditions:

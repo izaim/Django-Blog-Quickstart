@@ -15,11 +15,11 @@
 
 # This plugin is a refactored version of Win32IconImagePlugin by Bryan Davis
 # <casadebender@gmail.com>.
-# https://code.google.com/p/casadebender/wiki/Win32IconImagePlugin
+# https://code.google.com/archive/p/casadebender/wikis/Win32IconImagePlugin.wiki
 #
 # Icon format references:
 #   * https://en.wikipedia.org/wiki/ICO_(file_format)
-#   * http://msdn.microsoft.com/en-us/library/ms997538.aspx
+#   * https://msdn.microsoft.com/en-us/library/ms997538.aspx
 
 
 import struct
@@ -252,7 +252,7 @@ class IcoImageFile(ImageFile.ImageFile):
 
     This plugin is a refactored version of Win32IconImagePlugin by Bryan Davis
     <casadebender@gmail.com>.
-    https://code.google.com/p/casadebender/wiki/Win32IconImagePlugin
+    https://code.google.com/archive/p/casadebender/wikis/Win32IconImagePlugin.wiki
     """
     format = "ICO"
     format_description = "Windows Icon"

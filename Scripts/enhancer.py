@@ -39,11 +39,15 @@ class Enhance(Frame):
         s.pack()
 
     def update(self, value):
-        self.value = eval(value)
+        self.value = float(value)
         self.tkim.paste(self.enhancer.enhance(self.value))
 
 #
 # main
+
+if len(sys.argv) != 2:
+    print("Usage: enhancer file")
+    sys.exit(1)
 
 root = Tk()
 

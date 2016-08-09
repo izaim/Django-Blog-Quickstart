@@ -42,7 +42,7 @@ class UI(Frame):
         # self.redraw()
 
     def update_scale(self, value):
-        self.value = eval(value)
+        self.value = float(value)
 
         self.redraw()
 
@@ -59,6 +59,10 @@ class UI(Frame):
 
 # --------------------------------------------------------------------
 # main
+
+if len(sys.argv) != 2:
+    print("Usage: thresholder file")
+    sys.exit(1)
 
 root = Tk()
 
